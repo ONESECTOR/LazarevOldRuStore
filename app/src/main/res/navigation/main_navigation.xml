@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_navigation"
+    app:startDestination="@id/newsFragment">
+
+    <fragment
+        android:id="@+id/newsFragment"
+        android:name="com.owlylabs.platform.ui.news.fragment_news.NewsFragment"
+        android:label="NewsFragment">
+        <action
+            android:id="@+id/action_newsFragment_to_newsDetailFragment"
+            app:destination="@id/newsDetailFragment"
+            app:enterAnim="@anim/fade_in"
+            app:exitAnim="@anim/fade_out"
+            app:popEnterAnim="@anim/fade_in"
+            app:popExitAnim="@anim/fade_out"/>
+        <argument
+            android:name="tabId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/newsDetailFragment"
+        android:name="com.owlylabs.platform.ui.news.fragment_news_detail.NewsDetailFragment"
+        android:label="fragment_news_detail"
+        tools:layout="@layout/fragment_news_detail" >
+        <argument
+            android:name="newsId"
+            app:argType="integer" />
+        <argument
+            android:name="doNotWaitMenuAnimation"
+            android:defaultValue="0"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_newsDetailFragment_self"
+            app:destination="@id/newsDetailFragment" />
+        <deepLink
+            android:id="@+id/deepLinkNewsDetail"
+            app:uri="platformapp://main/news/details/?newsId={newsId}&amp;doNotWaitMenuAnimation={doNotWaitMenuAnimation}" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/booksFragment"
+        android:name="com.owlylabs.platform.ui.books.fragment_books.BooksFragment"
+        android:label="BooksFragment" >
+        <action
+            android:id="@+id/action_booksFragment_to_bookDetailFragment"
+            app:destination="@id/bookDetailFragment" />
+        <action
+            android:id="@+id/action_booksFragment_to_booksCollectionFragment"
+            app:destination="@id/booksCollectionFragment" />
+        <argument
+            android:name="tabId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/bookDetailFragment"
+        android:name="com.owlylabs.platform.ui.books.fragment_books_detail.BookDetailFragment"
+        android:label="fragment_book_detail"
+        tools:layout="@layout/fragment_book_detail" >
+        <argument
+            android:name="bookId"
+            app:argType="integer" />
+        <deepLink
+            android:id="@+id/deepLinkBooksDetail"
+            app:uri="platformapp://main/books/details/?bookId={bookId}" />
+    </fragment>
+    <fragment
+        android:id="@+id/booksCollectionFragment"
+        android:name="com.owlylabs.platform.ui.books.fragment_books_collection.BooksCollectionFragment"
+        android:label="fragment_books_collection"
+        tools:layout="@layout/fragment_books_collection" >
+        <argument
+            android:name="sectionId"
+            app:argType="integer" />
+        <deepLink
+            android:id="@+id/deepLinkBookCollectionDetail"
+            app:uri="platformapp://main/books/collection/?sectionId={sectionId}" />
+
+    </fragment>
+
+
+    <fragment
+        android:id="@+id/audiosFragment"
+        android:name="com.owlylabs.platform.ui.audios.fragment_audios.AudiosFragment"
+        android:label="AudiosFragment" >
+        <action
+            android:id="@+id/action_audiosFragment_to_audioDetailFragment"
+            app:destination="@id/audioDetailFragment" />
+        <action
+            android:id="@+id/action_audiosFragment_to_audioCollectionFragment"
+            app:destination="@id/audioCollectionFragment" />
+        <argument
+            android:name="tabId"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/audioDetailFragment"
+        android:name="com.owlylabs.platform.ui.audios.fragment_audios_detail.AudioDetailFragment"
+        android:label="fragment_audio_detail"
+        tools:layout="@layout/fragment_audio_detail" >
+        <argument
+            android:name="audioId"
+            app:argType="integer" />
+        <deepLink
+            android:id="@+id/deepLinkAudiosDetail"
+            app:uri="platformapp://main/audios/details/?audioId={audioId}" />
+    </fragment>
+    <fragment
+        android:id="@+id/audioCollectionFragment"
+        android:name="com.owlylabs.platform.ui.audios.fragment_audios_collection.AudioCollectionFragment"
+        android:label="fragment_audio_collection"
+        tools:layout="@layout/fragment_audio_collection" >
+        <argument
+            android:name="sectionId"
+            app:argType="integer" />
+        <deepLink
+            android:id="@+id/deepLinkAudioCollectionDetail"
+            app:uri="platformapp://main/audios/collection/?sectionId={sectionId}" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/videosFragment"
+        android:name="com.owlylabs.platform.ui.videos.fragment_videos.VideosFragment"
+        android:label="fragment_videos">
+        <argument
+            android:name="tabId"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_videosFragment_to_videoDetailFragment"
+            app:destination="@id/videoDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/videoDetailFragment"
+        android:name="com.owlylabs.platform.ui.videos.fragment_videos_detail.VideoDetailFragment"
+        android:label="fragment_video_detail"
+        tools:layout="@layout/fragment_video_detail" >
+        <argument
+            android:name="videoId"
+            app:argType="integer" />
+        <deepLink
+            android:id="@+id/deepLinkVideoDetail"
+            app:uri="platformapp://main/videos/details/?videoId={videoId}" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/accountFragment"
+        android:name="com.owlylabs.platform.ui.account.AccountFragment"
+        android:label="fragment_account"
+        tools:layout="@layout/fragment_account" >
+        <action
+            android:id="@+id/action_accountFragment_to_nameDialog"
+            app:destination="@id/nameDialog" />
+
+        <action
+            android:id="@+id/action_accountFragment_to_emailDialog"
+            app:destination="@id/emailDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/nameDialog"
+        android:label="nameDialog"
+        android:name="com.owlylabs.platform.ui.account.AccountFragmentNameDialog"/>
+
+    <dialog
+        android:id="@+id/emailDialog"
+        android:label="emailDialog"
+        android:name="com.owlylabs.platform.ui.account.AccountFragmentEmailDialog"/>
+
+</navigation>

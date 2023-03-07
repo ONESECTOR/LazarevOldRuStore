@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Tablet 10 inches -->
+    <integer name="numberOfBigBanners">2</integer>
+    <integer name="numberOfMiddleBanners">4</integer>
+
+    <integer name="numberOfMaxPossibleElements">12</integer>
+    <integer name="bigBannerSize">6</integer>
+    <integer name="midBannerSize">3</integer>
+
+    <integer name="numberOfBookCollectionGrid">2</integer>
+    <integer name="numberOfBookCollectionDescription">2</integer>
+    <integer name="numberOfBookCollectionBookHolder">1</integer>
+</resources>

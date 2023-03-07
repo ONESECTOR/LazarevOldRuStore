@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+    <com.owlylabs.platform.ui.custom.NestedScrollViewWithManualSaveState
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:fitsSystemWindows="true"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:fitsSystemWindows="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/vector_close_white" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/fragment_detail_background_blur_overlay"/>
+
+                <FrameLayout
+                    android:id="@+id/carview_container"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:clipChildren="false"
+                    android:fitsSystemWindows="false"
+                    app:layout_constraintDimensionRatio="H, 312:207"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_max="312dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    app:layout_constraintTop_toTopOf="parent">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardCornerRadius="3dp"
+                        app:cardElevation="33dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_video"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+                </FrameLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_play"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/VideoFragmentMaterialActionButton"
+                    app:layout_constraintBottom_toBottomOf="@id/carview_container"
+                    app:layout_constraintEnd_toEndOf="@id/carview_container"
+                    app:layout_constraintStart_toStartOf="@id/carview_container"
+                    app:layout_constraintTop_toBottomOf="@id/carview_container" />
+
+                <TextView
+                    android:id="@+id/video_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merriweather_bold"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/OnSurface"
+                    android:textSize="19sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button_play"
+                    android:paddingBottom="30dp"/>
+
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <!--Any child View here, TabLayout for example-->
+
+
+            <WebView
+                android:id="@+id/videoWebView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp"
+                android:layout_marginBottom="40dp"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+
+    </com.owlylabs.platform.ui.custom.NestedScrollViewWithManualSaveState>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent_but_white"
+        app:elevation="0dp"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:fitsSystemWindows="false"
+            app:navigationIcon="@drawable/vector_arrow_back"
+            app:menu="@menu/fragment_detail_toolbar_menu"/>
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <plurals name="number_of_days">
+        <item quantity="one">%d день</item>
+        <item quantity="few">%d дня</item>
+        <item quantity="many">%d днів</item>
+        <item quantity="other">%d днів</item>
+    </plurals>
+
+    <plurals name="plurals_first_day">
+        <item quantity="one">Перший %d день</item>
+        <item quantity="other">Перші %d днів</item>
+    </plurals>
+
+    <plurals name="plurals_months">
+        <item quantity="one">%d місяців</item>
+        <item quantity="few">%d місяців</item>
+        <item quantity="other">%d місяців</item>
+    </plurals>
+</resources>

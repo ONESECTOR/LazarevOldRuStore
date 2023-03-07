@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:focusable="true"
+    android:orientation="vertical"
+    android:foreground="@drawable/fragment_tab_news_item_ripper_effect">
+
+    <!--android:background="?attr/selectableItemBackground"-->
+
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:scaleType="centerCrop" />
+
+
+    <TextView
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/merriweather_bold"
+        android:textColor="@color/OnSurface"
+        android:textSize="16sp"
+        tools:text="Подробнее" />
+
+    <TextView
+        android:id="@+id/description"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="11dp"
+        android:fontFamily="@font/lato"
+        android:lineSpacingExtra="3sp"
+        android:letterSpacing="-0.02"
+        android:textColor="@color/OnSurface"
+        android:textSize="15sp"
+        tools:text="Подробнее" />
+
+    <TextView
+        android:id="@+id/action_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:drawableEnd="@drawable/vector_forward"
+        android:drawablePadding="12dp"
+        android:drawableTint="@color/Neutrals"
+        android:fontFamily="@font/lato"
+        android:textAllCaps="false"
+        android:gravity="center_vertical"
+        android:textColor="@color/Neutrals"
+        android:textSize="15sp"
+        tools:text="Подробнее" />
+</LinearLayout>

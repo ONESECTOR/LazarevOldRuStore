@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data/>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:foreground="@drawable/fragment_tab_news_item_ripper_effect"
+        android:orientation="vertical">
+
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardView"
+            android:layout_width="0dp"
+            android:layout_height="148dp"
+            android:background="@color/Neutrals"
+            android:minHeight="48dp"
+            app:cardCornerRadius="3dp"
+            app:cardElevation="6dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintDimensionRatio="W,1:1"
+            app:layout_constraintEnd_toStartOf="@id/progressBar">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/imageView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:adjustViewBounds="true"
+                android:scaleType="centerCrop"
+                tools:src="@drawable/vector_owlylabs_logo" />
+        </com.google.android.material.card.MaterialCardView>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/book_type"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginEnd="16dp"
+            android:drawableStart="@drawable/vector_type_audio"
+            android:drawablePadding="4dp"
+            android:gravity="center_vertical"
+            android:textColor="@color/Secondary"
+            android:textSize="13sp"
+            app:fontFamily="@font/lato"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardView"
+            app:layout_constraintTop_toTopOf="@id/cardView"
+            android:text="@string/text_audio" />
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+            android:layout_width="0dp"
+            android:layout_height="3dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="41dp"
+            app:layout_constraintBottom_toBottomOf="@id/cardView"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/cardView"
+            android:max="100"
+            android:visibility="invisible"
+            android:progressDrawable="@drawable/progressbar_background"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/audiobook_length"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:textColor="@color/OnSurface"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/progressBar"
+            app:layout_constraintEnd_toStartOf="@id/progress"
+            app:layout_constraintStart_toStartOf="@id/progressBar"
+            android:layout_marginBottom="6dp"
+            tools:text="164 стр." />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/progress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:gravity="end"
+            android:textColor="@color/OnSurface"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toTopOf="@id/progressBar"
+            app:layout_constraintEnd_toEndOf="@id/progressBar"
+            app:layout_constraintStart_toEndOf="@id/audiobook_length"
+            android:layout_marginBottom="6dp"
+            android:visibility="invisible"
+            tools:text="0%" />
+
+        <androidx.constraintlayout.widget.Barrier
+            android:id="@+id/barrier_for_progress_bar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:barrierDirection="top"
+            app:constraint_referenced_ids="audiobook_length, progress" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/bookName"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_marginTop="11dp"
+            android:layout_marginBottom="4dp"
+            android:textColor="@color/OnSurface"
+            android:textSize="14sp"
+            app:fontFamily="@font/merriweather_bold"
+            app:layout_constraintBottom_toTopOf="@id/barrier_for_progress_bar"
+            app:layout_constraintEnd_toEndOf="@id/progressBar"
+            app:layout_constraintStart_toStartOf="@id/progressBar"
+            app:layout_constraintTop_toBottomOf="@id/book_type"
+            tools:text="Блаженны нищие духом" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

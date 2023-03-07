@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.owlylabs.platform.ui.activity_start_screen.subscription.StartScreenSubscriptionFragmentViewModel" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/fragment_subscriptions_footer"
+        android:clipChildren="false"
+        android:clipToPadding="false"
+        android:orientation="vertical"
+        android:padding="24dp"
+        tools:theme="@style/StartActivityPlatformTheme">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:lineSpacingExtra="3sp"
+            android:text="@string/start_screen_subscription_conditions"
+            android:textColor="@color/Neutrals"
+            android:textSize="12sp"
+            app:fontFamily="@font/lato" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/button_terms"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/start_screen_subscription_terms_of_use"
+                android:textColor="@color/Primary"
+                android:textSize="12sp"
+                app:fontFamily="@font/lato" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginEnd="8dp"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="3sp"
+                android:text="●"
+                android:textColor="@color/Primary"
+                android:textSize="12sp"
+                app:fontFamily="@font/lato" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/button_support"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/start_screen_subscription_support"
+                android:textColor="@color/Primary"
+                android:textSize="12sp"
+                app:fontFamily="@font/lato" />
+        </LinearLayout>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:clipChildren="false">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/button_subscribe"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintWidth_max="312dp"
+            android:fontFamily="@font/lato"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="4sp"
+            android:stateListAnimator="@drawable/custom_mtrl_brn_state_list_anim"
+            android:minHeight="56dp"
+            android:text="@string/start_screen_subscription_subscribe"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:maxWidth="312dp"
+            app:shapeAppearanceOverlay="@style/ButtonRoundedCorners" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </LinearLayout>
+</layout>

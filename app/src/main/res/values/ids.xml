@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="navigation_news_graph" type="id"/>
+    <item name="navigation_books_graph" type="id"/>
+    <item name="navigation_audios_graph" type="id"/>
+    <item name="navigation_videos_graph" type="id"/>
+    <item name="navigation_account_graph" type="id"/>
+
+</resources>

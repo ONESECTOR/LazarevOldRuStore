@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="account_block">
+        <item>@string/manage_subscription</item>
+        <item>@string/write_to_support</item>
+        <item>@string/rate_the_app</item>
+        <item>@string/share_with_app</item>
+    </string-array>
+
+    <string-array name="subscription_opportunities_block">
+        <item>@string/start_screen_subscription_access_all_books</item>
+        <item>@string/start_screen_subscription_authors_practics</item>
+    </string-array>
+
+</resources>

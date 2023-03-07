@@ -1,0 +1,136 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="BaseAppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/Primary</item>
+        <item name="colorPrimaryVariant">@color/PrimaryVariant</item>
+        <item name="colorOnPrimary">@color/OnPrimary</item>
+
+        <item name="colorSecondary">@color/Secondary</item>
+        <item name="colorSecondaryVariant">@color/SecondaryVariant</item>
+        <item name="colorOnSecondary">@color/OnSecondary</item>
+
+        <item name="android:colorBackground">@color/Background</item>
+        <item name="colorOnBackground">@color/OnBackground</item>
+        <item name="colorSurface">@color/Surface</item>
+        <item name="colorOnSurface">@color/OnSurface</item>
+        <item name="colorError">@color/Error</item>
+        <item name="colorOnError">@color/OnError</item>
+        
+        <item name="actionBarStyle">@style/CommonActionBarStyle</item>
+
+        <item name="android:forceDarkAllowed">false</item>
+    </style>
+
+    <style name="StartActivityPlatformTheme" parent="BaseAppTheme">
+        <item name="android:statusBarColor">#FFFFFF</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:colorBackground">@android:color/white</item>
+    </style>
+    
+    <style name="CommonActionBarStyle" parent="Widget.MaterialComponents.Light.ActionBar.Solid">
+        <item name="background">@drawable/appbar_empty</item>
+        <item name="backgroundStacked">@drawable/appbar_empty</item>
+        <item name="backgroundSplit">@drawable/appbar_empty</item>
+    </style>
+
+    <style name="AppTheme" parent="BaseAppTheme">
+        <!-- Customize your theme here. -->
+        <item name="android:titleTextColor">#ff0000</item>
+        <item name="toolbarStyle">@style/MyToolbar</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="MyToolbar" parent="@style/Widget.MaterialComponents.Toolbar">
+        <item name="contentInsetStart">24dp</item>
+        <item name="titleTextAppearance">@style/MyToolbartitleTextAppearance</item>
+    </style>
+
+    <style name="MyToolbartitleTextAppearance" parent="@style/TextAppearance.MaterialComponents.Headline6">
+        <item name="fontFamily">@font/merriweather_bold</item>
+        <item name="android:textSize">29sp</item>
+    </style>
+
+    <style name="AppTheme.ActionBar.Title" parent="TextAppearance.AppCompat.Widget.ActionBar.Title">
+        <item name="android:fontFamily">@font/merriweather_bold</item>
+
+    </style>
+
+    <style name="SplashTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@drawable/splash_background</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
+    </style>
+
+    <style name="FullTransparent">
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:colorBackgroundCacheHint">@null</item>
+        <item name="android:windowIsTranslucent">true</item>
+        <!-- Note that we use the base animation style here (that is no
+             animations) because we really have no idea how this kind of
+             activity will be used. -->
+        <item name="android:windowAnimationStyle">@null</item>
+    </style>
+
+    <style name="ButtonRoundedCorners">
+        <item name="cornerFamily">rounded</item>
+        <item name="cornerSize">50%</item>
+    </style>
+
+    <style name="collapsing_toolbar_expanded_title" parent="TextAppearance.Design.CollapsingToolbar.Expanded">
+        <item name="android:textColor">#000</item>
+        <item name="android:textSize">19sp</item>
+        <item name="android:includeFontPadding">false</item>
+        <item name="android:fontFamily">@font/merriweather_bold</item>
+    </style>
+
+    <style name="DetailFragmentActionMatetialButton" parent="Widget.MaterialComponents.Button.UnelevatedButton">
+        <item name="android:paddingEnd">@dimen/detail_fragment_material_action_button_horizontal_padding</item>
+        <item name="android:paddingStart">@dimen/detail_fragment_material_action_button_horizontal_padding</item>
+        <item name="android:paddingTop">@dimen/detail_fragment_material_action_button_vertical_padding</item>
+        <item name="android:paddingBottom">@dimen/detail_fragment_material_action_button_vertical_padding</item>
+        <item name="iconGravity">textStart</item>
+        <item name="android:textColor">@color/OnPrimary</item>
+        <item name="android:textSize">@dimen/detail_fragment_material_action_button_text_size</item>
+        <item name="fontFamily">@font/lato</item>
+        <item name="android:textAllCaps">false</item>
+        <item name="android:lineSpacingExtra">@dimen/detail_fragment_material_action_button_line_spacing_extra</item>
+        <item name="android:letterSpacing">@dimen/detail_fragment_material_action_button_letter_spacing</item>
+        <item name="shapeAppearanceOverlay">@style/ButtonRoundedCorners</item>
+    </style>
+
+    <style name="VideoFragmentMaterialActionButton" parent="DetailFragmentActionMatetialButton">
+        <item name="icon">@drawable/vector_play_audio</item>
+        <item name="android:text">@string/watch</item>
+    </style>
+
+    <style name="AudioFragmentMaterialActionButton" parent="DetailFragmentActionMatetialButton">
+        <item name="icon">@drawable/vector_play_audio</item>
+        <item name="android:text">@string/listen</item>
+    </style>
+
+    <style name="BookFragmentMaterialActionButton" parent="DetailFragmentActionMatetialButton">
+        <item name="icon">@drawable/vector_read</item>
+        <item name="android:text">@string/read</item>
+    </style>
+
+    <style name="ExoMediaButton.Previous">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+    <style name="ExoMediaButton.Next">
+        <item name="android:layout_height">0dp</item>
+        <item name="android:layout_width">0dp</item>
+    </style>
+
+</resources>

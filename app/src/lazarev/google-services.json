@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "989034437874",
+    "firebase_url": "https://lazarev-270116.firebaseio.com",
+    "project_id": "lazarev-270116",
+    "storage_bucket": "lazarev-270116.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:989034437874:android:286b3d4510941ab8fd846b",
+        "android_client_info": {
+          "package_name": "com.lazarev.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "989034437874-egcok2i7oik4bfo2rrs952ibpgs29q71.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCCr6CV21mHHgILkYibwpSjf8Pgyt5tf50"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "989034437874-egcok2i7oik4bfo2rrs952ibpgs29q71.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

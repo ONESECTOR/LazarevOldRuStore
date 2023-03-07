@@ -1,0 +1,2 @@
+include ':app', ':playerlibrary', ':epublibrary', ':threeten-extra-1.5.0'
+rootProject.name='Platform2020'

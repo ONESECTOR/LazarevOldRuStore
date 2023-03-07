@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.AppCompatTextView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:theme="@style/StartActivityPlatformTheme"
+    tools:text="Placeholder"
+    android:id="@+id/text_view_action"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:drawableStart="@drawable/vector_green_check"
+    android:drawablePadding="8dp"
+    android:gravity="center_vertical"
+    android:layout_marginStart="24dp"
+    android:layout_marginEnd="24dp"/>

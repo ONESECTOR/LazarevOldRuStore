@@ -1,0 +1,74 @@
+<resources>
+    <string name="app_name_my_app" translatable="false">Лазарев С.Н.</string>
+
+    <string name="news">News</string>
+    <string name="books">Books</string>
+    <string name="account">Account</string>
+    <string name="audio">Audio</string>
+    <string name="practices">Practices</string>
+
+    <string name="jump_to_web">Open in Web</string>
+    <string name="jump_to_news">Jump to News</string>
+    <string name="jump_to_books">Jump to Book</string>
+    <string name="jump_to_audio">Jump to Audio</string>
+    <string name="jump_to_video">Jump to Video</string>
+
+    <string name="watch">Watch</string>
+    <string name="listen">Listen</string>
+    <string name="read">Read</string>
+
+    <string name="placeholder_number_of_pages">%1$s page.</string>
+
+    <string name="change_the_name">Change your name</string>
+
+    <string name="manage_subscription">Manage subscription</string>
+    <string name="write_to_support">Write to support</string>
+    <string name="rate_the_app">Rate this app in Google Play</string>
+    <string name="share_with_app">Recommend this app</string>
+
+    <string name="made_with_love">Made with</string>
+
+    <string name="enter_your_name">Enter your name</string>
+    <string name="enter_your_email">Enter your email</string>
+
+    <string name="text_book">Book</string>
+    <string name="text_audio">Audio</string>
+
+    <string name="placeholder_share_with_content">Hi, I recommend \"%1$s\":\n
+        Apple iOS https://itunes.apple.com/ru/app/id1500568073\n
+        Android https://play.google.com/store/apps/details?id=com.lazarev.app</string>
+
+    <string name="zendesk_ticket_subject" translatable="false">Лазарев С.Н. (Android)</string>
+
+    <string name="downloading_book">The book is downloading</string>
+
+    <string name="placeholder_progress_procent_placeholder" translatable="false">%1$d\%%</string>
+
+    <string name="start_screen_welcome_text">— Glad to see you in Lazarev\'s community!\nWhat is Your name?</string>
+    <string name="start_screen_enter_name_description">This way we can send you personalized reminders.</string>
+    <string name="start_screen_enter_name_continue_button">Continue</string>
+    <string name="start_screen_enter_name_continue_skip">Skip</string>
+
+    <string name="start_screen_subscription_restore">Restore</string>
+    <string name="start_screen_subscription_discover_losung">Discover life from a new perspective!</string>
+    <string name="start_screen_subscription_access_all_books">Access to all books and audio</string>
+    <string name="start_screen_subscription_authors_practics">Author\'s practices</string>
+    <string name="start_screen_subscription_conditions">The first 7 or 14 days are free, then payments will be debited from your account automatically. You can unsubscribe in your Google Play Settings</string>
+    <string name="start_screen_subscription_terms_of_use">Terms of use</string>
+    <string name="start_screen_subscription_support">Tech support</string>
+    <string name="start_screen_subscription_subscribe">Subscribe</string>
+
+    <string name="subscription_item_title_placeholder">%1$s - %2$s for free</string>
+
+    <string name="subscription_item_title_placeholder_title_and_price">%1$s - %2$s/%3$s</string>
+    <string name="subscription_item_subtitle_placeholder_trial">%1$s - %2$s</string>
+
+    <string name="subscription_item_price_yearly">Early for %1$s</string>
+    <string name="subscription_item_price_monthly">%1$s per month</string>
+
+    <string name="recommend_our_app">Hi, I recommend this App:\n
+        Apple iOS https://itunes.apple.com/ru/app/id1500568073\n
+        Android https://play.google.com/store/apps/details?id=com.lazarev.app</string>
+
+    <string name="for_free">%1$s for free</string>
+</resources>

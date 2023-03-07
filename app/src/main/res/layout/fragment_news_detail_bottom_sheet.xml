@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/fragment_news_details_bottom_sheet_ripper_effect"
+    android:layout_gravity="bottom"
+    app:layout_behavior="@string/bottom_sheet_behavior"
+    android:id="@+id/fragment_news_details_bottom_sheet_parent"
+    android:minHeight="48dp"
+    android:clickable="true"
+    android:focusable="true"
+    >
+
+    <TextView
+        android:id="@+id/jump_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/lato"
+        android:textSize="15sp"
+        android:paddingStart="24dp"
+        android:paddingEnd="24dp"
+        android:paddingTop="18dp"
+        android:paddingBottom="14dp"
+        android:includeFontPadding="false"
+        android:gravity="center_vertical"
+        android:textColor="@color/OnPrimary"
+        tools:text="Перейти на сайт"/>
+
+</FrameLayout>

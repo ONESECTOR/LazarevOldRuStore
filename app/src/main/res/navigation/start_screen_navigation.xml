@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/start_screen_navigation"
+    app:startDestination="@id/startScreenNameFragment">
+
+    <fragment
+        android:id="@+id/startScreenNameFragment"
+        android:name="com.owlylabs.platform.ui.activity_start_screen.enter_name.StartScreenNameFragment"
+        android:label="fragment_start_screen_name"
+        tools:layout="@layout/fragment_start_screen_name">
+        <action
+            android:id="@+id/action_startScreenNameFragment_to_startScreenSubscriptionFragment"
+            app:destination="@id/startScreenSubscriptionFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/startScreenSubscriptionFragment"
+        android:name="com.owlylabs.platform.ui.activity_start_screen.subscription.StartScreenSubscriptionFragment"
+        android:label="fragment_start_screen_subscription"
+        tools:layout="@layout/fragment_start_screen_subscription" >
+        <action
+            android:id="@+id/action_startScreenSubscriptionFragment_to_emailDialog"
+            app:destination="@id/emailDialog" />
+    </fragment>
+
+    <dialog
+        android:id="@+id/emailDialog"
+        android:label="emailDialog"
+        android:name="com.owlylabs.platform.ui.account.AccountFragmentEmailDialog"/>
+</navigation>

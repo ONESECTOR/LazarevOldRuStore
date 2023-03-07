@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clipChildren="false">
+
+    <LinearLayout
+        android:id="@+id/parentLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:clipChildren="false"
+        android:focusable="true"
+        android:orientation="vertical"
+        android:clipToPadding="false"
+        android:paddingTop="24dp"
+        android:paddingBottom="24dp">
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merriweather_bold"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textColor="@color/Primary"
+            android:textSize="19sp" />
+
+        <TextView
+            android:id="@+id/sub_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/lato"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:textColor="@color/Primary"
+            android:textSize="15sp" />
+
+        <com.owlylabs.platform.ui.custom.tab.HorizontalRecyclerViewThatUsedInTabs
+            android:id="@+id/horizontal_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="19dp"
+            android:clipChildren="false"
+            android:overScrollMode="never" />
+
+    </LinearLayout>
+</FrameLayout>

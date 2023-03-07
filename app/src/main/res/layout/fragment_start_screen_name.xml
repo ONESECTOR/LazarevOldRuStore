@@ -1,0 +1,109 @@
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:splitMotionEvents="false"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:theme="@style/StartActivityPlatformTheme"
+    tools:context="com.owlylabs.platform.ui.activity_start_screen.enter_name.StartScreenNameFragment">
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:overScrollMode="never"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:orientation="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="24dp"
+            android:paddingEnd="24dp"
+            android:paddingTop="19dp"
+            android:paddingBottom="19dp"
+            android:clipToPadding="false"
+            android:clipChildren="false">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="19sp"
+                app:fontFamily="@font/merriweather_bold"
+                android:textColor="@android:color/black"
+                android:text="@string/start_screen_welcome_text"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
+                android:hint="@string/enter_your_name"
+                app:boxStrokeColor="@android:color/black">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edit_text_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
+                    android:textSize="18sp"/>
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="14dp"
+                android:textSize="13sp"
+                app:fontFamily="@font/lato"
+                android:textColor="@color/Neutrals"
+                android:text="@string/start_screen_enter_name_description"/>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="49dp"
+                android:clipChildren="false">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_subscribe"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="312dp"
+                    android:stateListAnimator="@drawable/custom_mtrl_brn_state_list_anim"
+                    app:shapeAppearanceOverlay="@style/ButtonRoundedCorners"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/lato"
+                    android:textAllCaps="false"
+                    android:text="@string/start_screen_enter_name_continue_button"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="4sp"
+                    android:enabled="false"
+                    android:maxWidth="50dp"
+                    app:elevation="8dp"
+                    android:minHeight="56dp" />
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/buttonSkip"
+                    style="@style/Widget.MaterialComponents.Button.TextButton"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button_subscribe"
+                    android:layout_marginTop="16dp"
+                    app:layout_constraintWidth_max="312dp"
+                    app:shapeAppearanceOverlay="@style/ButtonRoundedCorners"
+                    android:textSize="18sp"
+                    android:fontFamily="@font/lato"
+                    android:textAllCaps="false"
+                    android:text="@string/start_screen_enter_name_continue_skip"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="4sp"
+                    android:minHeight="56dp"/>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </LinearLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

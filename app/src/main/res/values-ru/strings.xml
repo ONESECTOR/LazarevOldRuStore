@@ -1,0 +1,69 @@
+<resources>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="news">Новости</string>
+    <string name="books">Книги</string>
+    <string name="account">Аккаунт</string>
+    <string name="audio">Аудио</string>
+    <string name="practices">Практики</string>
+    
+    <string name="jump_to_web">Перейти на сайт</string>
+    <string name="jump_to_news">Перейти в новость</string>
+    <string name="jump_to_books">Перейти в книгу</string>
+    <string name="jump_to_audio">Перейти в аудиокнигу</string>
+    <string name="jump_to_video">Перейти в видео</string>
+
+    <string name="watch">Смотреть</string>
+    <string name="listen">Слушать</string>
+    <string name="read">Читать</string>
+
+    <string name="placeholder_number_of_pages">%1$s стр.</string>
+
+    <string name="change_the_name">Изменить имя</string>
+
+    <string name="manage_subscription">Управлять подпиской</string>
+    <string name="write_to_support">Написать в тех. поддержку</string>
+    <string name="rate_the_app">Оценить приложение в Google Play</string>
+    <string name="share_with_app">Посоветовать приложение другу</string>
+
+    <string name="made_with_love">Сделано с</string>
+
+    <string name="enter_your_name">Введите Ваше имя</string>
+    <string name="enter_your_email">Введите Ваш email</string>
+
+    <string name="text_book">Книга</string>
+    <string name="text_audio">Аудио</string>
+
+    <string name="placeholder_share_with_content">Привет, рекомендую \"%1$s\" в приложении С.Н. Лазарева:\n
+        Apple iOS https://itunes.apple.com/ru/app/id1500568073\n
+        Android https://play.google.com/store/apps/details?id=com.lazarev.app</string>
+
+    <string name="downloading_book">Книга скачивается</string>
+
+    <string name="start_screen_welcome_text">— Добро пожаловать в сообщество читателей С.Н. Лазарева!\n\nКак вас зовут?</string>
+    <string name="start_screen_enter_name_description">Так мы сможем отправлять вам персональные напоминания.</string>
+    <string name="start_screen_enter_name_continue_button">Продолжить</string>
+    <string name="start_screen_enter_name_continue_skip">Пропустить</string>
+
+    <string name="start_screen_subscription_restore">Восстановить</string>
+    <string name="start_screen_subscription_discover_losung">Откройте для себя жизнь с новой стороны!</string>
+    <string name="start_screen_subscription_access_all_books">Доступ ко всем книгам и аудио</string>
+    <string name="start_screen_subscription_authors_practics">Авторские практики</string>
+    <string name="start_screen_subscription_conditions">Первые 7 или 14 дней бесплатно,
+        далее платежи будут списываться с вашего счета автоматически.
+        Отменить подписку можно в Настройках вашего Google Play</string>
+    <string name="start_screen_subscription_terms_of_use">Правила использования</string>
+    <string name="start_screen_subscription_support">Техподдержка</string>
+    <string name="start_screen_subscription_subscribe">Оформить подписку</string>
+
+    <string name="subscription_item_title_placeholder">%1$s - %2$s бесплатно</string>
+
+    <string name="subscription_item_price_yearly">Годовой платеж %1$s</string>
+    <string name="subscription_item_price_monthly">%1$s /мес.</string>
+
+    <string name="recommend_our_app">Привет, рекомендую авторское приложение С.Н. Лазарева:\n
+        Apple iOS https://itunes.apple.com/ru/app/id1500568073\n
+        Android https://play.google.com/store/apps/details?id=com.lazarev.app</string>
+
+    <string name="for_free">%1$s бесплатно</string>
+</resources>

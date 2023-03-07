@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="newsData"
+            type="com.owlylabs.platform.model.data.NewsData" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:focusable="true"
+        android:background="?attr/selectableItemBackground"
+        android:padding="24dp"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/img"
+            app:binging_adapter_news_item="@{newsData.url_img}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/merriweather_bold"
+            android:text="@{newsData.title}"
+            android:textColor="@color/OnSurface"
+            android:textSize="16sp"
+            android:layout_marginTop="11dp"
+            tools:text="Подробнее" />
+
+        <TextView
+            android:id="@+id/description"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lato"
+            android:textSize="15sp"
+            android:text="@{newsData.description}"
+            android:textColor="@color/OnSurface"
+            android:layout_marginTop="11dp"
+            tools:text="Подробнее" />
+
+        <TextView
+            android:id="@+id/action_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/vector_forward"
+            android:drawableTint="@color/Neutrals"
+            android:drawablePadding="12dp"
+            android:layout_marginTop="8dp"
+            android:textSize="15sp"
+            android:fontFamily="@font/lato"
+            android:text="@{newsData.button_title}"
+            android:textAllCaps="false"
+            android:textColor="@color/Neutrals"
+            tools:text="Подробнее" />
+    </LinearLayout>
+</layout>

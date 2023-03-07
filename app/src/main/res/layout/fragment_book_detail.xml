@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/white"
+    android:fitsSystemWindows="true">
+
+    <com.owlylabs.platform.ui.custom.NestedScrollViewWithManualSaveState
+        android:id="@+id/nestedScrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:overScrollMode="never"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:descendantFocusability="blocksDescendants"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:clipChildren="false"
+                android:fitsSystemWindows="true">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:id="@+id/image_background"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools:src="@drawable/vector_close_white" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:background="@color/fragment_detail_background_blur_overlay"/>
+
+                <FrameLayout
+                    android:id="@+id/carview_container"
+                    android:layout_width="0dp"
+                    android:layout_height="312dp"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="?attr/actionBarSize"
+                    android:layout_marginEnd="24dp"
+                    android:clipChildren="false"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHeight_max="312dp"
+                    app:layout_constraintWidth_max="312dp"
+                    app:layout_constraintDimensionRatio="W, 203:312"
+                    app:layout_constraintVertical_bias="0.0">
+
+                    <com.google.android.material.card.MaterialCardView
+                        android:id="@+id/cardView"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        app:cardCornerRadius="3dp"
+                        app:cardElevation="33dp">
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            android:id="@+id/image_book"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:adjustViewBounds="true"
+                            android:scaleType="centerCrop" />
+                    </com.google.android.material.card.MaterialCardView>
+                </FrameLayout>
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_read"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:theme="@style/BookFragmentMaterialActionButton"
+                    app:layout_constraintBottom_toBottomOf="@id/carview_container"
+                    app:layout_constraintEnd_toEndOf="@id/carview_container"
+                    app:layout_constraintStart_toStartOf="@id/carview_container"
+                    app:layout_constraintTop_toBottomOf="@id/carview_container" />
+
+                <TextView
+                    android:id="@+id/book_title"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/merriweather_bold"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/OnSurface"
+                    android:textSize="19sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/button_read"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textview_page_count"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/book_title"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toStartOf="@id/textview_book_progress"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="8dp"
+                    android:textSize="13sp"
+                    android:textColor="@color/OnSurface"
+                    app:fontFamily="@font/lato"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/textview_book_progress"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/book_title"
+                    app:layout_constraintStart_toEndOf="@id/textview_page_count"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    android:layout_marginEnd="24dp"
+                    android:gravity="end"
+                    android:textSize="13sp"
+                    android:textColor="@color/OnSurface"
+                    android:layout_marginTop="8dp"
+                    app:fontFamily="@font/lato"/>
+
+                <androidx.constraintlayout.widget.Barrier
+                    android:layout_marginTop="6dp"
+                    android:id="@+id/barrier_for_progress_bar"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:barrierDirection="bottom"
+                    app:constraint_referenced_ids="textview_page_count, textview_book_progress"/>
+
+                <ProgressBar
+                    android:id="@+id/progress_bar"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    app:layout_constraintTop_toBottomOf="@id/barrier_for_progress_bar"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginEnd="24dp"
+                    android:layout_marginTop="6dp"
+                    android:layout_marginBottom="30dp"
+                    android:progressDrawable="@drawable/progressbar_background"
+                    style="@style/Widget.AppCompat.ProgressBar.Horizontal" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <WebView
+                android:id="@+id/bookWebView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginEnd="24dp"
+                android:scrollbars="none" />
+
+        </LinearLayout>
+
+    </com.owlylabs.platform.ui.custom.NestedScrollViewWithManualSaveState>
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbarlayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/transparent_but_white"
+        app:elevation="0dp"
+        android:fitsSystemWindows="true">
+
+        <com.google.android.material.appbar.MaterialToolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?actionBarSize"
+            android:fitsSystemWindows="false"
+            app:menu="@menu/fragment_detail_toolbar_menu"
+            app:navigationIcon="@drawable/vector_arrow_back" />
+
+
+    </com.google.android.material.appbar.AppBarLayout>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

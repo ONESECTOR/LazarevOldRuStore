@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "91730169838",
+    "firebase_url": "https://testlazarev-2694b.firebaseio.com",
+    "project_id": "testlazarev-2694b",
+    "storage_bucket": "testlazarev-2694b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:91730169838:android:5d1c02c2024fd8798108ff",
+        "android_client_info": {
+          "package_name": "com.owlylabs.platform"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "91730169838-1u2tt7d62t9ilal3mqef44rml4aqggqn.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBzBzs4hV_5pyrGSZZe3Gts9ppHY0mKwkA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "91730169838-1u2tt7d62t9ilal3mqef44rml4aqggqn.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">@color/Primary</color>
+    <color name="colorPrimaryDark">#00574B</color>
+    <color name="colorAccent">#D81B60</color>
+
+    <color name="navigation_bar_divider">#e0e0e0</color>
+
+    <color name="ripple_color_light">#33ffffff</color>
+    <color name="ripple_color_dark">#1f000000</color>
+
+
+    <!-- Design Palette-->
+    <color name="Background">#FBFBFB</color>
+    <color name="OnBackground">#232234</color>
+    <color name="Surface">#FFFFFF</color>
+    <color name="OnSurface">#232234</color>
+    <color name="Primary">#232234</color>
+    <color name="PrimaryVariant">#646387</color>
+    <color name="OnPrimary">#FFFFFF</color>
+    <color name="Secondary">#978E80</color>
+    <color name="SecondaryVariant">#B5AA9A</color>
+    <color name="OnSecondary">#FFFFFF</color>
+    <color name="Error">#EB5757</color>
+    <color name="ErrorVariant">#FF6F6F</color>
+    <color name="OnError">#FFFFFF</color>
+
+    <!-- Design Palette Extended-->
+    <color name="Divider">#E6E3D9</color>
+    <color name="BlackOpacity">#0F000000</color>
+    <color name="Positive">#1E976D</color>
+    <color name="PositiveVariant">#29B484</color>
+    <color name="OnPositive">#FFFFFF</color>
+    <color name="Neutrals">#74747B</color>
+    <color name="NeutralsVariant">#9E9EA7</color>
+    <color name="OnNeutrals">#FFFFFF</color>
+    <color name="Light">#F5F0E9</color>
+    <color name="LightVariant">#E7E1D9</color>
+    <color name="OnLight">#232234</color>
+    <color name="Extralight">#F9F7F3</color>
+    <color name="ExtralightVariant">#F0EEE8</color>
+    <color name="OnExtralight">#232234</color>
+
+
+
+
+
+
+
+    <!--theme-->
+    <color name="navigation_item_deselected">#978E80</color>
+    <color name="navigation_item_selected">#000000</color>
+    <color name="action_bar_background">#E6FBFBFB</color>
+    <color name="transparent_but_white">#00FBFBFB</color>
+
+    <!-- splash -->
+    <color name="colorGradientStart">#086074</color>
+    <color name="colorGradientCenter">#6ba27b</color>
+    <color name="colorGradientEnd">#9fcc79</color>
+    <color name="splashBackground">@color/Positive</color>
+
+    <color name="fragment_detail_background_blur_overlay">#BFFFFFFF</color>
+
+    <color name="fragment_subscriptions_footer">#F5F3EE</color>
+
+
+</resources>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!-- Mobile -->
+    <integer name="numberOfBigBanners">1</integer>
+    <integer name="numberOfMiddleBanners">2</integer>
+
+    <integer name="numberOfMaxPossibleElements">2</integer>
+    <integer name="bigBannerSize">2</integer>
+    <integer name="midBannerSize">1</integer>
+
+    <integer name="numberOfBookCollectionGrid">1</integer>
+    <integer name="numberOfBookCollectionDescription">1</integer>
+    <integer name="numberOfBookCollectionBookHolder">1</integer>
+</resources>

@@ -1,0 +1,273 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "com.vanniktech.dependency.graph.generator"
+apply plugin: "androidx.navigation.safeargs"
+apply plugin: 'com.google.gms.google-services'
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    compileSdkVersion 33
+
+    compileOptions {
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    dataBinding {
+        enabled true
+    }
+
+    viewBinding {
+        enabled = true
+    }
+
+    repositories {
+        maven { url 'https://jitpack.io' }
+        maven {
+            url 'https://github.com/psiegman/mvn-repo/raw/master/releases'
+        }
+        maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
+    }
+
+    signingConfigs {
+        lazarev {
+            storeFile file('lazarev_key')
+            storePassword 'lazarev'
+            keyAlias = 'lazarev'
+            keyPassword 'lazarev'
+        }
+    }
+
+    packagingOptions {
+        resources.excludes.add("META-INF/*")
+    }
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8
+    }
+
+    lintOptions {
+        disable 'PrivateResource'
+    }
+
+    def versionPropsFile = file('version.properties')
+    Properties versionProps = new Properties()
+
+    if (versionPropsFile.canRead()) {
+        versionProps.load(new FileInputStream(versionPropsFile))
+    } else {
+        versionProps['VERSION_CODE'] = '0'
+    }
+
+    List<String> runTasks = gradle.startParameter.getTaskNames();
+    def value = 0
+    for (String item : runTasks)
+        if ((item.contains("assembleRelease") || item.contains("release") || item.contains("Release")) && (!item.contains("debug")) && (!item.contains("Debug"))) {
+            value = 1
+        }
+
+    //def code = 145
+    def code = versionProps['VERSION_CODE'].toInteger() + value
+
+    versionProps['VERSION_CODE'] = code.toString()
+    versionProps.store(versionPropsFile.newWriter(), null)
+
+    def versionMajor = 1
+    def versionMinor = 0
+    def versionFix = 0
+
+    def time = getDate()
+
+    flavorDimensions "platformName"
+    productFlavors {
+        lazarev {
+            applicationId 'com.lazarev.app'
+            resConfigs "ru"
+            dimension 'platformName'
+            manifestPlaceholders = [yandex_token: "8c62d254-a6f0-4095-946c-419c1fb1e45d"]
+            sourceSets {
+                main {
+                    resources {
+                        exclude '**/values-uk/*'
+                    }
+                }
+            }
+            //sourceSets.main.res.filter.exclude '**/values-ru/**'
+            //sourceSets.main.res.filter.exclude '**/values-uk/**'
+            project.ext.set("archivesBaseName", "lazarev-" + versionMajor + "." + versionMinor + "." + versionFix + "-b-" + code + "-" + time)
+        }
+    }
+
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 33
+        //versionName "${versionMajor}.${versionMinor}.${versionFix}.${code}-${time}"
+        versionName = "1.6"
+        versionCode = 230
+        //versionCode code
+        multiDexEnabled true
+        /* ndk {
+            abiFilters 'x86', 'x86_64', 'arm64-v8a', 'armeabi-v7a'
+        }*/
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        dataBinding.enabled = true
+
+        javaCompileOptions {
+            annotationProcessorOptions {
+                arguments = [
+                        "room.incremental"     : "true",
+                        "room.expandProjection": "true"
+                ]
+            }
+        }
+    }
+
+    configurations.all {
+        resolutionStrategy {
+            // force certain versions of dependencies (including transitive)
+            //  *append new forced modules:
+            force 'com.google.android.exoplayer:exoplayer-core:2.16.0'
+            force 'com.google.android.exoplayer:exoplayer-ui:2.16.0'
+            force 'com.google.android.exoplayer:exoplayer-dash:2.16.0'
+        }
+    }
+
+    buildTypes {
+        debugableRelease {
+            debuggable true
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            //productFlavors.lazarev.signingConfig signingConfigs.lazarev
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            buildConfigField "String", "APP_VERSION", "\"${versionMajor}.${versionMinor}.${versionFix}\""
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            productFlavors.lazarev.signingConfig signingConfigs.lazarev
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "true"]
+            buildConfigField "String", "APP_VERSION", "\"${versionMajor}.${versionMinor}.${versionFix}\""
+        }
+        debug {
+            debuggable true
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            manifestPlaceholders = [crashlyticsCollectionEnabled: "false"]
+            buildConfigField "String", "APP_VERSION", "\"${versionMajor}.${versionMinor}.${versionFix}\""
+        }
+    }
+}
+
+static def getDate() {
+    def date = new Date()
+    def formattedDate = date.format('yyyy.MM.dd-HH_mm')
+    return formattedDate
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    def core_version = "1.3.1"
+    def lifecycle_version = "2.5.1"
+    def room_version = "2.4.3"
+    def nav_version = "2.3.0"
+    def preference_version = "1.1.1"
+    def fragment_version = "1.2.5"
+    def constraintlayout_version = "2.1.4"
+    def dagger_version = "2.25.4"
+    def rxJava_version = "2.2.17"
+    def rxKotlin_version = "2.4.0"
+    def rxAndroid_version = "2.1.1"
+    def svg_decoder_version = "1.4"
+
+    /* Foundation */
+    implementation "androidx.appcompat:appcompat:1.5.1"
+    implementation "androidx.core:core-ktx:$core_version"
+    implementation "androidx.fragment:fragment-ktx:$fragment_version"
+    implementation "androidx.preference:preference-ktx:$preference_version"
+    implementation "com.google.android.material:material:1.7.0"
+    implementation "androidx.constraintlayout:constraintlayout:$constraintlayout_version"
+    implementation 'androidx.browser:browser:1.2.0'
+
+    /* RxJava */
+    implementation "io.reactivex.rxjava2:rxjava:$rxJava_version"
+    implementation "io.reactivex.rxjava2:rxandroid:$rxAndroid_version"
+    implementation "io.reactivex.rxjava2:rxkotlin:$rxKotlin_version"
+
+    /* Architecture - ViewModel & LiveData */
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-reactivestreams:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-process:$lifecycle_version"
+
+    /* Architecture - Room */
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    implementation "androidx.room:room-rxjava2:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    /* Architecture - Navigation */
+    implementation "androidx.navigation:navigation-fragment-ktx:$nav_version"
+    implementation "androidx.navigation:navigation-ui-ktx:$nav_version"
+
+    /* Retrofit2 */
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-gson:2.9.0"
+    implementation "com.squareup.retrofit2:adapter-rxjava2:2.9.0"
+
+    /* Dagger2 */
+    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt "com.google.dagger:dagger-compiler:$dagger_version"
+    implementation "com.google.dagger:dagger-android:$dagger_version"
+    implementation "com.google.dagger:dagger-android-support:$dagger_version"
+    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
+
+    /* Glide */
+    implementation "com.github.bumptech.glide:glide:4.12.0"
+    kapt "com.github.bumptech.glide:compiler:4.12.0"
+    implementation "com.caverock:androidsvg-aar:$svg_decoder_version"
+    implementation 'jp.wasabeef:glide-transformations:4.3.0'
+
+    api fileTree(include: ['*.jar'], dir: 'libs')
+
+    implementation('nl.siegmann.epublib:epublib-core:3.1') {
+        exclude group: 'org.slf4j'
+        exclude group: 'xmlpull'
+    }
+    implementation 'org.slf4j:slf4j-android:1.7.25'
+
+    implementation 'com.jakewharton:butterknife:10.2.0'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:10.2.0'
+
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.16.0'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.16.0'
+
+    implementation 'com.f2prateek.rx.preferences2:rx-preferences:2.0.0'
+    implementation 'com.android.billingclient:billing:4.0.0'
+
+    implementation project(':epublibrary') //подключение библиотеки читалки
+    implementation project(':playerlibrary')
+
+    implementation 'com.google.firebase:firebase-analytics:21.2.0'
+    implementation 'com.google.firebase:firebase-crashlytics:18.3.2'
+    implementation "com.google.firebase:firebase-messaging:23.0.1"
+
+    implementation "com.yandex.android:mobmetricalib:5.2.0"
+    implementation "com.yandex.android:mobmetricapushlib:2.2.0"
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    implementation group: 'com.zendesk', name: 'support', version: '4.0.0'
+
+    implementation "com.google.android.gms:play-services-base:18.1.0"
+
+    implementation 'com.github.razir.progressbutton:progressbutton:2.0.1'
+
+    implementation 'com.github.chuross.rx-observablefield:rxobservablefield-kotlin:0.2.5'
+
+    implementation 'com.jakewharton.threetenabp:threetenabp:1.2.3'
+    implementation project(':threeten-extra-1.5.0')
+}

@@ -1,0 +1,45 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="common_list_divider_height">1dp</dimen>
+    <dimen name="common_list_divider_margin">24dp</dimen>
+
+    <dimen name="tab_list_side_margin">24dp</dimen>
+    <dimen name="tab_list_item_margin">16dp</dimen>
+    <dimen name="tab_list_item_margin_half">8dp</dimen>
+
+    <dimen name="banner_list_item_horizontal_item_radius">4dp</dimen>
+    <dimen name="banner_list_item_horizontal_item_title_top_margin">11dp</dimen>
+    <dimen name="banner_list_item_horizontal_item_subtitle_top_margin">11dp</dimen>
+    <dimen name="banner_list_item_horizontal_item_action_button_top_margin">8dp</dimen>
+
+
+    <dimen name="banner_list_item_horizontal_item_line_spacing_extra">3sp</dimen>
+    <item name="banner_list_item_horizontal_item_line_spacing_extra_for_code"  format="float" type="dimen">3</item>
+    <item name="banner_list_item_horizontal_item_letter_spacing" format="float" type="dimen">-0.02</item>
+    <dimen name="banner_list_item_horizontal_item_title_size">16sp</dimen>
+    <dimen name="banner_list_item_horizontal_item_subtitle_size">15sp</dimen>
+    <dimen name="banner_list_item_horizontal_item_action_button_size">15sp</dimen>
+
+    <dimen name="fragment_audio_detail_bottom_text_margin">44dp</dimen>
+    <dimen name="fragment_book_detail_bottom_text_margin">42dp</dimen>
+    <dimen name="fragment_video_detail_bottom_text_margin">40dp</dimen>
+    
+    <dimen name="detail_fragment_material_action_button_horizontal_padding">11dp</dimen>
+    <dimen name="detail_fragment_material_action_button_vertical_padding">13dp</dimen>
+    <dimen name="detail_fragment_material_action_button_text_size">18sp</dimen>
+    <dimen name="detail_fragment_material_action_button_line_spacing_extra">4sp</dimen>
+    <item name="detail_fragment_material_action_button_letter_spacing" format="float" type="dimen">-0.02</item>
+
+    <dimen name="video_detail_image_radius">3dp</dimen>
+    <dimen name="fragment_account_holder_action_separator_height">1dp</dimen>
+
+    <dimen name="fragment_start_screen_subscription_space_between_header_and_action_list">22dp</dimen>
+    <dimen name="fragment_start_screen_subscription_space_between_actions">6dp</dimen>
+    <dimen name="fragment_start_screen_subscription_space_between_action_list_and_subscription_list">28dp</dimen>
+    <dimen name="fragment_start_screen_subscription_space_between_subscriptions">14dp</dimen>
+    <dimen name="fragment_start_screen_subscription_space_between_subscription_list_and_footer">22dp</dimen>
+
+    <dimen name="spacing_24">24dp</dimen>
+</resources>

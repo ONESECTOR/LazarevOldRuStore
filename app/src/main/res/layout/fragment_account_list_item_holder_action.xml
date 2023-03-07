@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/textView_action"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="?attr/selectableItemBackground"
+        android:clickable="true"
+        android:drawableEnd="@drawable/vector_arrow_right"
+        android:focusable="true"
+        android:letterSpacing="@dimen/banner_list_item_horizontal_item_letter_spacing"
+        android:lineSpacingExtra="@dimen/banner_list_item_horizontal_item_line_spacing_extra"
+        android:paddingStart="24dp"
+        android:paddingTop="12dp"
+        android:paddingBottom="12dp"
+        android:paddingEnd="24dp"
+        android:gravity="center_vertical"
+        android:textColor="@color/OnSurface"
+        android:textSize="15sp"
+        app:fontFamily="@font/lato"
+        tools:text="@string/manage_subscription">
+
+    </androidx.appcompat.widget.AppCompatTextView>
+</FrameLayout>
