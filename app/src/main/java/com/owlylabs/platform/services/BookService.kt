@@ -14,6 +14,8 @@ import com.owlylabs.playerlibrary.helpers.crypto.AESHelper
 import dagger.android.DaggerIntentService
 import io.reactivex.subjects.ReplaySubject
 import okio.Okio
+import okio.buffer
+import okio.sink
 import java.io.File
 import java.util.ArrayList
 import javax.inject.Inject
@@ -104,7 +106,7 @@ class BookService : DaggerIntentService("OpenBookService") {
                                         )
                                         fileObserver.startWatching()
 
-                                        val sink = Okio.buffer(Okio.sink(file))
+                                        val sink = file.sink().buffer()
                                         sink.writeAll(it.source())
                                         sink.flush()
                                         sink.close()

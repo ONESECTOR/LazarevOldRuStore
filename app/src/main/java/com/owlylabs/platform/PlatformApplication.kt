@@ -45,9 +45,7 @@ class PlatformApplication : DaggerApplication() {
     override fun onCreate() {
         super.onCreate()
 
-        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
-
-        //Logger.setLoggable(true);
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
 
         var currentProcName : String? = null
         val pid = Process.myPid()

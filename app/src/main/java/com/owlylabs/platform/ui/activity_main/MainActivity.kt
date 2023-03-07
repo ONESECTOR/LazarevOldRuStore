@@ -30,10 +30,7 @@ class MainActivity : DaggerAppCompatActivity(), INavToFragmentByDeepLink {
     private val compositeDisposableOnCreate = CompositeDisposable()
 
     @Inject
-    lateinit var tabsRepositoryRoom: AbstractLocalRepository
-
-    @Inject
-    lateinit var billingClientManager: BillingClientManager
+    lateinit var repository: AbstractLocalRepository
 
     private lateinit var bottomNavigationView: BottomNavigationView
 
@@ -50,7 +47,7 @@ class MainActivity : DaggerAppCompatActivity(), INavToFragmentByDeepLink {
 
         setContentView(binding.root)
         initViews()
-        compositeDisposableOnCreate.add(tabsRepositoryRoom.getAllTabsObservable().observeOn(
+        compositeDisposableOnCreate.add(repository.getAllTabsObservable().observeOn(
             AndroidSchedulers.mainThread()
         ).subscribe(
             {
@@ -80,7 +77,6 @@ class MainActivity : DaggerAppCompatActivity(), INavToFragmentByDeepLink {
     }
 
     private fun configTabsFromLoadedData(newMenuData: List<TabData>) {
-
         if (newMenuData.isNotEmpty()){
             val mainTab = newMenuData[0]
             val inflater = navHostFragment.navController.navInflater

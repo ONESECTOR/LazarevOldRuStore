@@ -5,6 +5,7 @@ import com.owlylabs.platform.model.repository.remote.ServerAPI
 import dagger.Module
 import dagger.Provides
 import okhttp3.Headers
+import okhttp3.Headers.Companion.toHeaders
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -38,7 +39,6 @@ class RetrofitModule {
         return builder.build()
     }
 
-    //@Inject
     @Provides
     fun getInterceptor(): Interceptor {
         return Interceptor { chain: Interceptor.Chain ->
@@ -48,7 +48,7 @@ class RetrofitModule {
             //headMap["Connection"] = "close"
             headMap["Content-Type"] = "application/json"
             //headMap["Accept-Encoding"] = "identity"
-            val headers = Headers.of(headMap)
+            val headers = headMap.toHeaders()
             requestBuilder.headers(headers)
             chain.proceed(requestBuilder.build())
         }

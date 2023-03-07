@@ -29,6 +29,9 @@ android {
             url 'https://github.com/psiegman/mvn-repo/raw/master/releases'
         }
         maven { url 'https://zendesk.jfrog.io/zendesk/repo' }
+        maven {
+            url = uri("https://artifactory-external.vkpartner.ru/artifactory/maven")
+        }
     }
 
     signingConfigs {
@@ -267,6 +270,8 @@ dependencies {
     implementation 'com.github.razir.progressbutton:progressbutton:2.0.1'
 
     implementation 'com.github.chuross.rx-observablefield:rxobservablefield-kotlin:0.2.5'
+
+    implementation 'ru.rustore.sdk:billingclient:0.1.7'
 
     implementation 'com.jakewharton.threetenabp:threetenabp:1.2.3'
     implementation project(':threeten-extra-1.5.0')
