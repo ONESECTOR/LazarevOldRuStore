@@ -1,13 +1,13 @@
 package com.owlylabs.platform.ui.activity_main.tab
 
 import android.content.Context
-import android.content.Intent
 import android.os.Bundle
 import android.os.Parcelable
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.GridLayoutManager.SpanSizeLookup
 import com.owlylabs.platform.R
@@ -19,7 +19,9 @@ import com.owlylabs.platform.util.DeepLinkUtil
 import com.owlylabs.platform.util.InternetUtil
 import com.owlylabs.platform.util.insetPadding
 import com.owlylabs.platform.constants.AppLogicConstants
-import com.owlylabs.platform.ui.activity_start_screen.StartScreenActivity
+import com.owlylabs.platform.ui.audios.fragment_audios.AudiosFragmentDirections
+import com.owlylabs.platform.ui.books.fragment_books.BooksFragmentDirections
+import com.owlylabs.platform.ui.videos.fragment_videos.VideosFragmentDirections
 import dagger.android.support.DaggerFragment
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
@@ -29,7 +31,7 @@ import kotlin.properties.Delegates
 
 open class TabThatRepresentsSectionsFragment: DaggerFragment(), InterfaceBannerClick {
     protected var tabId: Int by Delegates.notNull()
-    protected lateinit var gridLayoutManager: GridLayoutManager
+    private lateinit var gridLayoutManager: GridLayoutManager
     protected lateinit var viewModel: TabThatRepresentsSectionsViewModel
 
     protected lateinit var recyclerViewAdapter: TabThatRepresentsSectionsRecyclerViewAdapter
@@ -64,7 +66,7 @@ open class TabThatRepresentsSectionsFragment: DaggerFragment(), InterfaceBannerC
                 repository,
                 tabId
             )
-        )[tabId.toString(), TabThatRepresentsSectionsViewModel::class.java]
+        ).get(tabId.toString(), TabThatRepresentsSectionsViewModel::class.java)
     }
 
     override fun onCreateView(
@@ -77,25 +79,16 @@ open class TabThatRepresentsSectionsFragment: DaggerFragment(), InterfaceBannerC
             container,
             false
         )
+        compositeDisposable = CompositeDisposable()
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        compositeDisposable = CompositeDisposable()
-
         configRecyclerView()
 
         binding.recyclerView.insetPadding()
-
-        /*viewModel.tabLiveData.observe(viewLifecycleOwner) { tabData ->
-            binding.materialToolbar.title = tabData.title
-        }
-
-        viewModel.listLiveData.observe(viewLifecycleOwner) {
-            recyclerViewAdapter.updateData(it)
-        }*/
 
         when(tabId) {
             1 -> {
@@ -111,7 +104,23 @@ open class TabThatRepresentsSectionsFragment: DaggerFragment(), InterfaceBannerC
                 compositeDisposable.add(
                     repository.hasAnyActiveSubscription().observeOn(AndroidSchedulers.mainThread()).subscribe {
                         if (!it) {
-                            onActivitySubscription()
+                            when(tabId) {
+                                2 -> {
+                                    findNavController().navigate(
+                                        BooksFragmentDirections.onSubscription()
+                                    )
+                                }
+                                3 -> {
+                                    findNavController().navigate(
+                                        AudiosFragmentDirections.onSubscription()
+                                    )
+                                }
+                                4 -> {
+                                    findNavController().navigate(
+                                        VideosFragmentDirections.onSubscription()
+                                    )
+                                }
+                            }
                         } else {
                             viewModel.tabLiveData.observe(viewLifecycleOwner) { tabData ->
                                 binding.materialToolbar.title = tabData.title
@@ -135,13 +144,6 @@ open class TabThatRepresentsSectionsFragment: DaggerFragment(), InterfaceBannerC
     override fun onDestroyView() {
         gridLayoutManagerState = gridLayoutManager.onSaveInstanceState()
         super.onDestroyView()
-    }
-
-    private fun onActivitySubscription() {
-        val intent = Intent(requireContext(), StartScreenActivity::class.java)
-        intent.putExtra("is_from_app", true)
-        startActivity(intent)
-        activity?.finish()
     }
 
     private fun configRecyclerView() {

@@ -15,9 +15,14 @@ import com.owlylabs.platform.util.setSafeOnClickListener
 import com.owlylabs.platform.constants.AppLogicConstants
 
 class StartScreenSubscriptionRecyclerViewAdapter(
-    val listener: StartScreenSubscriptionRecyclerViewListener,
-    val startScreenSubscriptionFragmentViewModel: StartScreenSubscriptionFragmentViewModel) :
-    RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+    private val subscriptions: List<Pair<String, String>>,
+    private val onItemClick: () -> Unit,
+    private val onSubscribeClick: () -> Unit,
+    private val onTermsOfUseClick: (String) -> Unit,
+    private val onSupportClick: () -> Unit,
+    private val onRestoreClick: () -> Unit,
+    private val onBackClick: () -> Unit
+) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     val data = ArrayList<StartScreenSubscriptionRecyclerViewItemAbstract>()
 
@@ -53,7 +58,7 @@ class StartScreenSubscriptionRecyclerViewAdapter(
                     parent,
                     false
                 )
-                binding.setVariable(BR.viewModel, startScreenSubscriptionFragmentViewModel)
+                //binding.setVariable(BR.viewModel, startScreenSubscriptionFragmentViewModel)
                 //binding.viewModel = startScreenSubscriptionFragmentViewModel
                 return FooterHolder(binding)
             }
@@ -76,20 +81,22 @@ class StartScreenSubscriptionRecyclerViewAdapter(
     }
 
     inner class HeaderHolder(
-        val holderViewBinding: FragmentStartScreenSubscriptionHeaderBinding
+        private val holderViewBinding: FragmentStartScreenSubscriptionHeaderBinding
     ) : RecyclerView.ViewHolder(holderViewBinding.root) {
         init {
             holderViewBinding.restore.setOnClickListener {
-                listener.onClickRestartBilling()
+                //listener.onClickRestartBilling()
+                onRestoreClick.invoke()
             }
             holderViewBinding.btnBack.setOnClickListener {
-                listener.onClickBack()
+                onBackClick.invoke()
+                //listener.onClickBack()
             }
         }
     }
 
     inner class ActionHolder(
-        val holderViewBinding: FragmentStartScreenSubscriptionActionBinding
+        private val holderViewBinding: FragmentStartScreenSubscriptionActionBinding
     ) : AbstractBindableHolder(holderViewBinding.root) {
         override fun bind(data: StartScreenSubscriptionRecyclerViewItemAbstract) {
             if (data is StartScreenSubscriptionRecyclerViewItemAction) {
@@ -99,14 +106,15 @@ class StartScreenSubscriptionRecyclerViewAdapter(
     }
 
     inner class SubscriptionHolder(
-        val holderViewBinding: FragmentStartScreenSubscriptionSubscriptionItemBinding
+        private val holderViewBinding: FragmentStartScreenSubscriptionSubscriptionItemBinding
     ) : AbstractBindableHolder(holderViewBinding.root) {
 
         init {
             holderViewBinding.parent.setOnClickListener {
                 val itemData = data[adapterPosition]
                 if (itemData is StartScreenSubscriptionRecyclerViewItemSubscription) {
-                    listener.onClickSelectSubscription(itemData.skuDetail)
+                    //listener.onClickSelectSubscription(itemData.skuDetail)
+                    onItemClick.invoke()
                 }
             }
         }
@@ -114,36 +122,41 @@ class StartScreenSubscriptionRecyclerViewAdapter(
         override fun bind(data: StartScreenSubscriptionRecyclerViewItemAbstract) {
             if (data is StartScreenSubscriptionRecyclerViewItemSubscription) {
                 holderViewBinding.parent.isSelected = data.isSelected
-                holderViewBinding.textViewTitle.text = TextUtil.getTitleForSubscriptionItemHolder(
+                holderViewBinding.textViewTitle.text = "Месячная подписка"
+                holderViewBinding.textViewPrice.text = "149 рублей"
+                /*holderViewBinding.textViewTitle.text = TextUtil.getTitleForSubscriptionItemHolder(
                     holderViewBinding.root.context,
                     data.skuDetail
                 )
                 holderViewBinding.textViewPrice.text = TextUtil.getPriceForSubscriptionItemHolder(
                     holderViewBinding.root.context,
                     data.skuDetail
-                )
+                )*/
             }
         }
     }
 
     inner class FooterHolder(
-         val holderViewBinding: FragmentStartScreenSubscriptionFooterBinding
+        private val holderViewBinding: FragmentStartScreenSubscriptionFooterBinding
     ) : AbstractBindableHolder(holderViewBinding.root) {
         init {
             holderViewBinding.buttonSubscribe.setOnClickListener {
                 data.forEach {
                     if (it is StartScreenSubscriptionRecyclerViewItemSubscription) {
                         if (it.isSelected) {
-                            listener.onClickSubscribe(it.skuDetail)
+                            onSubscribeClick.invoke()
+                            //listener.onClickSubscribe(it.skuDetail)
                         }
                     }
                 }
             }
             holderViewBinding.buttonSupport.setOnClickListener {
-                listener.onClickSupport()
+                //listener.onClickSupport()
+                onSupportClick.invoke()
             }
             holderViewBinding.buttonTerms.setSafeOnClickListener {
-                listener.onClickTermsOfUsage(BillingConstants.TERMS_OF_USE_URL)
+                onTermsOfUseClick.invoke(BillingConstants.TERMS_OF_USE_URL)
+                //listener.onClickTermsOfUsage(BillingConstants.TERMS_OF_USE_URL)
             }
         }
 
@@ -152,7 +165,7 @@ class StartScreenSubscriptionRecyclerViewAdapter(
         }
     }
 
-    inner abstract class AbstractBindableHolder(holderView: View) :
+    abstract inner class AbstractBindableHolder(holderView: View) :
         RecyclerView.ViewHolder(holderView) {
         open fun bind(data: StartScreenSubscriptionRecyclerViewItemAbstract) {}
     }

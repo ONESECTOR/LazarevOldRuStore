@@ -15,12 +15,12 @@ import com.owlylabs.platform.constants.AppLogicConstants
 class StartScreenSubscriptionRecyclerViewItemDecorations(context: Context) :
     RecyclerView.ItemDecoration() {
 
-    val space_between_header_and_action_list: Int
-    val space_between_actions: Int
-    val space_between_action_list_and_subscription_list: Int
-    val space_between_subscriptions: Int
-    val space_between_subscription_list_and_footer: Int
-    val dividerPaint: Paint
+    private val space_between_header_and_action_list: Int
+    private val space_between_actions: Int
+    private val space_between_action_list_and_subscription_list: Int
+    private val space_between_subscriptions: Int
+    private val space_between_subscription_list_and_footer: Int
+    private val dividerPaint: Paint
 
     init {
         space_between_header_and_action_list =
@@ -40,11 +40,10 @@ class StartScreenSubscriptionRecyclerViewItemDecorations(context: Context) :
 
     override fun onDrawOver(c: Canvas, parent: RecyclerView, state: RecyclerView.State) {
         val adapter = parent.adapter
-        adapter?.let { recyclerViewAdapter ->
+        adapter?.let {
             for (i in 0 until parent.childCount) {
                 val itemView = parent.getChildAt(i) as View
-                val itemHolder = parent.getChildViewHolder(itemView)
-                when (itemHolder) {
+                when (parent.getChildViewHolder(itemView)) {
                     is StartScreenSubscriptionRecyclerViewAdapter.FooterHolder -> {
 
                         val dividerPositionXStart = itemView.left.toFloat()
@@ -73,8 +72,7 @@ class StartScreenSubscriptionRecyclerViewItemDecorations(context: Context) :
         val adapter = parent.adapter
         val adapterPos = parent.getChildAdapterPosition(view)
         if (adapter is StartScreenSubscriptionRecyclerViewAdapter) {
-            val itemHolder = parent.getChildViewHolder(view)
-            when (itemHolder) {
+            when (parent.getChildViewHolder(view)) {
                 is StartScreenSubscriptionRecyclerViewAdapter.HeaderHolder -> {
                     outRect.top = 0
                 }

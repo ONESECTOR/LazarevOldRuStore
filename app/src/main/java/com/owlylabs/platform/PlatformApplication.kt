@@ -20,6 +20,7 @@ import com.yandex.metrica.YandexMetricaConfig
 import com.yandex.metrica.push.YandexMetricaPush
 import dagger.android.AndroidInjector
 import dagger.android.support.DaggerApplication
+import ru.rustore.sdk.billingclient.RuStoreBillingClient
 import zendesk.core.Zendesk
 import zendesk.support.Support
 
@@ -44,8 +45,13 @@ class PlatformApplication : DaggerApplication() {
 
     override fun onCreate() {
         super.onCreate()
-
         AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
+
+        RuStoreBillingClient.init(
+            application = this,
+            consoleApplicationId = "111111",
+            deeplinkScheme = "yourappscheme"
+        )
 
         var currentProcName : String? = null
         val pid = Process.myPid()

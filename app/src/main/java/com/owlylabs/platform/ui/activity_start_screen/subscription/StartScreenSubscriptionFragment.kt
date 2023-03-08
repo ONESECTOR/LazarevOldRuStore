@@ -101,7 +101,7 @@ class StartScreenSubscriptionFragment : DaggerFragment(), StartScreenSubscriptio
     }
 
     private fun configRecyclerView() {
-        recyclerViewAdapter = StartScreenSubscriptionRecyclerViewAdapter(this, viewModel)
+        //recyclerViewAdapter = StartScreenSubscriptionRecyclerViewAdapter(this, viewModel)
         binding.recyclerView.layoutManager = LinearLayoutManager(mContext, RecyclerView.VERTICAL, false)
         binding.recyclerView.addItemDecoration(StartScreenSubscriptionRecyclerViewItemDecorations(mContext))
         binding.recyclerView.itemAnimator = null

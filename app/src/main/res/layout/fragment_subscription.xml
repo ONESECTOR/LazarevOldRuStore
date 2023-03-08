@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true"
+    tools:context=".ui.activity_main.subscription.SubscriptionFragment">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btn_back"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/vector_arrow_back"
+            android:clickable="true"
+            android:focusable="true"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/banner_img"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="40dp"
+            android:src="@drawable/fragment_start_screen_subscription_tree"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/btn_back" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/restore"
+            style="@style/Widget.MaterialComponents.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:layout_marginEnd="8dp"
+            android:fontFamily="@font/lato"
+            android:letterSpacing="-0.02"
+            android:lineSpacingExtra="3sp"
+            android:minWidth="0dp"
+            android:minHeight="48dp"
+            android:paddingStart="16dp"
+            android:paddingTop="5dp"
+            android:paddingEnd="16dp"
+            android:paddingBottom="5dp"
+            android:text="@string/start_screen_subscription_restore"
+            android:textAllCaps="false"
+            android:textColor="@color/Primary"
+            android:textSize="17sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_description"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="24dp"
+            android:layout_marginTop="17dp"
+            android:layout_marginEnd="24dp"
+            android:gravity="center_horizontal"
+            android:text="@string/start_screen_subscription_discover_losung"
+            android:textColor="@android:color/black"
+            android:textSize="19sp"
+            app:fontFamily="@font/merriweather_bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/banner_img" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/subscription_features"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="24dp"
+            android:layout_marginTop="22dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/tv_description">
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/vector_green_check"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/lato"
+                android:text="@string/start_screen_subscription_access_all_books"
+                android:textColor="@color/OnSurface" />
+
+            <com.google.android.material.textview.MaterialTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:drawableStart="@drawable/vector_green_check"
+                android:drawablePadding="8dp"
+                android:fontFamily="@font/lato"
+                android:text="@string/start_screen_subscription_authors_practics"
+                android:textColor="@color/OnSurface" />
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/subscriptions"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="26dp"
+            android:nestedScrollingEnabled="false"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@id/subscription_features"
+            tools:itemCount="2"
+            tools:listitem="@layout/fragment_start_screen_subscription_subscription_item" />
+
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:id="@+id/subscription_actions"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/fragment_subscriptions_footer"
+            android:clipChildren="false"
+            android:clipToPadding="false"
+            android:orientation="vertical"
+            android:padding="24dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/subscriptions"
+            tools:theme="@style/StartActivityPlatformTheme">
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:lineSpacingExtra="3sp"
+                android:text="@string/start_screen_subscription_conditions"
+                android:textColor="@color/Neutrals"
+                android:textSize="12sp"
+                app:fontFamily="@font/lato" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="28dp"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_terms_of_use"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/start_screen_subscription_terms_of_use"
+                    android:textColor="@color/Primary"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/lato" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:layout_marginEnd="8dp"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="3sp"
+                    android:text="●"
+                    android:textColor="@color/Primary"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/lato" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/btn_support"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:lineSpacingExtra="3sp"
+                    android:text="@string/start_screen_subscription_support"
+                    android:textColor="@color/Primary"
+                    android:textSize="12sp"
+                    app:fontFamily="@font/lato" />
+            </LinearLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:clipChildren="false">
+
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/button_subscribe"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/lato"
+                    android:letterSpacing="-0.02"
+                    android:lineSpacingExtra="4sp"
+                    android:maxWidth="312dp"
+                    android:minHeight="56dp"
+                    android:stateListAnimator="@drawable/custom_mtrl_brn_state_list_anim"
+                    android:text="@string/start_screen_subscription_subscribe"
+                    android:textAllCaps="false"
+                    android:textSize="18sp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintWidth_max="312dp"
+                    app:shapeAppearanceOverlay="@style/ButtonRoundedCorners" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.core.widget.NestedScrollView>

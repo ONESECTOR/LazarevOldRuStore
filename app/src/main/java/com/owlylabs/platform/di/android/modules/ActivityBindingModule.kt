@@ -29,7 +29,8 @@ abstract class ActivityBindingModule {
             BooksModule::class,
             AudiosModule::class,
             VideosModule::class,
-            AccountModule::class
+            AccountModule::class,
+            SubscriptionModule::class
         ]
     )
     internal abstract fun mainActivity(): MainActivity

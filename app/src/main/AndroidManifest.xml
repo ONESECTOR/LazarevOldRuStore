@@ -45,6 +45,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <activity
             android:name=".ui.activity_main.MainActivity"
             android:exported="true"
@@ -52,6 +53,12 @@
             android:theme="@style/SplashTheme"
             tools:ignore="LockedOrientationActivity">
             <nav-graph android:value="@navigation/main_navigation" />
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+                <data android:scheme="yourappscheme" />
+            </intent-filter>
         </activity>
 
         <activity

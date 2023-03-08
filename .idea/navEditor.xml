@@ -164,8 +164,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="962" />
+                            <option name="y" value="-334" />
                           </Point>
                         </option>
                         <option name="myPositions">
@@ -248,6 +248,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="onSubscription">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -316,6 +321,11 @@
                                 <LayoutPositions />
                               </value>
                             </entry>
+                            <entry key="onSubscription">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
                           </map>
                         </option>
                       </LayoutPositions>
@@ -326,8 +336,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="12" />
-                            <option name="y" value="12" />
+                            <option name="x" value="1226" />
+                            <option name="y" value="-277" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -338,8 +348,8 @@
                       <LayoutPositions>
                         <option name="myPosition">
                           <Point>
-                            <option name="x" value="-298" />
-                            <option name="y" value="12" />
+                            <option name="x" value="732" />
+                            <option name="y" value="-342" />
                           </Point>
                         </option>
                       </LayoutPositions>
@@ -392,6 +402,18 @@
                       </LayoutPositions>
                     </value>
                   </entry>
+                  <entry key="subscriptionFragment">
+                    <value>
+                      <LayoutPositions>
+                        <option name="myPosition">
+                          <Point>
+                            <option name="x" value="1200" />
+                            <option name="y" value="459" />
+                          </Point>
+                        </option>
+                      </LayoutPositions>
+                    </value>
+                  </entry>
                   <entry key="videoDetailFragment">
                     <value>
                       <LayoutPositions>
@@ -425,6 +447,11 @@
                         <option name="myPositions">
                           <map>
                             <entry key="action_videosFragment_to_videoDetailFragment">
+                              <value>
+                                <LayoutPositions />
+                              </value>
+                            </entry>
+                            <entry key="onSubscription">
                               <value>
                                 <LayoutPositions />
                               </value>

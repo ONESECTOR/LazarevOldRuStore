@@ -15,16 +15,17 @@
             app:enterAnim="@anim/fade_in"
             app:exitAnim="@anim/fade_out"
             app:popEnterAnim="@anim/fade_in"
-            app:popExitAnim="@anim/fade_out"/>
+            app:popExitAnim="@anim/fade_out" />
         <argument
             android:name="tabId"
+            android:defaultValue="1"
             app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/newsDetailFragment"
         android:name="com.owlylabs.platform.ui.news.fragment_news_detail.NewsDetailFragment"
         android:label="fragment_news_detail"
-        tools:layout="@layout/fragment_news_detail" >
+        tools:layout="@layout/fragment_news_detail">
         <argument
             android:name="newsId"
             app:argType="integer" />
@@ -45,7 +46,7 @@
     <fragment
         android:id="@+id/booksFragment"
         android:name="com.owlylabs.platform.ui.books.fragment_books.BooksFragment"
-        android:label="BooksFragment" >
+        android:label="BooksFragment">
         <action
             android:id="@+id/action_booksFragment_to_bookDetailFragment"
             app:destination="@id/bookDetailFragment" />
@@ -54,13 +55,17 @@
             app:destination="@id/booksCollectionFragment" />
         <argument
             android:name="tabId"
+            android:defaultValue="2"
             app:argType="integer" />
+        <action
+            android:id="@+id/onSubscription"
+            app:destination="@id/subscriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/bookDetailFragment"
         android:name="com.owlylabs.platform.ui.books.fragment_books_detail.BookDetailFragment"
         android:label="fragment_book_detail"
-        tools:layout="@layout/fragment_book_detail" >
+        tools:layout="@layout/fragment_book_detail">
         <argument
             android:name="bookId"
             app:argType="integer" />
@@ -72,7 +77,7 @@
         android:id="@+id/booksCollectionFragment"
         android:name="com.owlylabs.platform.ui.books.fragment_books_collection.BooksCollectionFragment"
         android:label="fragment_books_collection"
-        tools:layout="@layout/fragment_books_collection" >
+        tools:layout="@layout/fragment_books_collection">
         <argument
             android:name="sectionId"
             app:argType="integer" />
@@ -86,7 +91,7 @@
     <fragment
         android:id="@+id/audiosFragment"
         android:name="com.owlylabs.platform.ui.audios.fragment_audios.AudiosFragment"
-        android:label="AudiosFragment" >
+        android:label="AudiosFragment">
         <action
             android:id="@+id/action_audiosFragment_to_audioDetailFragment"
             app:destination="@id/audioDetailFragment" />
@@ -95,13 +100,17 @@
             app:destination="@id/audioCollectionFragment" />
         <argument
             android:name="tabId"
+            android:defaultValue="3"
             app:argType="integer" />
+        <action
+            android:id="@+id/onSubscription"
+            app:destination="@id/subscriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/audioDetailFragment"
         android:name="com.owlylabs.platform.ui.audios.fragment_audios_detail.AudioDetailFragment"
         android:label="fragment_audio_detail"
-        tools:layout="@layout/fragment_audio_detail" >
+        tools:layout="@layout/fragment_audio_detail">
         <argument
             android:name="audioId"
             app:argType="integer" />
@@ -113,7 +122,7 @@
         android:id="@+id/audioCollectionFragment"
         android:name="com.owlylabs.platform.ui.audios.fragment_audios_collection.AudioCollectionFragment"
         android:label="fragment_audio_collection"
-        tools:layout="@layout/fragment_audio_collection" >
+        tools:layout="@layout/fragment_audio_collection">
         <argument
             android:name="sectionId"
             app:argType="integer" />
@@ -128,16 +137,20 @@
         android:label="fragment_videos">
         <argument
             android:name="tabId"
+            android:defaultValue="4"
             app:argType="integer" />
         <action
             android:id="@+id/action_videosFragment_to_videoDetailFragment"
             app:destination="@id/videoDetailFragment" />
+        <action
+            android:id="@+id/onSubscription"
+            app:destination="@id/subscriptionFragment" />
     </fragment>
     <fragment
         android:id="@+id/videoDetailFragment"
         android:name="com.owlylabs.platform.ui.videos.fragment_videos_detail.VideoDetailFragment"
         android:label="fragment_video_detail"
-        tools:layout="@layout/fragment_video_detail" >
+        tools:layout="@layout/fragment_video_detail">
         <argument
             android:name="videoId"
             app:argType="integer" />
@@ -150,7 +163,7 @@
         android:id="@+id/accountFragment"
         android:name="com.owlylabs.platform.ui.account.AccountFragment"
         android:label="fragment_account"
-        tools:layout="@layout/fragment_account" >
+        tools:layout="@layout/fragment_account">
         <action
             android:id="@+id/action_accountFragment_to_nameDialog"
             app:destination="@id/nameDialog" />
@@ -158,16 +171,29 @@
         <action
             android:id="@+id/action_accountFragment_to_emailDialog"
             app:destination="@id/emailDialog" />
+        <argument
+            android:name="tabId"
+            android:defaultValue="5"
+            app:argType="integer" />
     </fragment>
 
     <dialog
         android:id="@+id/nameDialog"
-        android:label="nameDialog"
-        android:name="com.owlylabs.platform.ui.account.AccountFragmentNameDialog"/>
+        android:name="com.owlylabs.platform.ui.account.AccountFragmentNameDialog"
+        android:label="nameDialog" />
 
     <dialog
         android:id="@+id/emailDialog"
-        android:label="emailDialog"
-        android:name="com.owlylabs.platform.ui.account.AccountFragmentEmailDialog"/>
+        android:name="com.owlylabs.platform.ui.account.AccountFragmentEmailDialog"
+        android:label="emailDialog" />
+    <fragment
+        android:id="@+id/subscriptionFragment"
+        android:name="com.owlylabs.platform.ui.activity_main.subscription.SubscriptionFragment"
+        android:label="fragment_subscription"
+        tools:layout="@layout/fragment_subscription" >
+        <action
+            android:id="@+id/onEmailDialog"
+            app:destination="@id/emailDialog" />
+    </fragment>
 
 </navigation>
